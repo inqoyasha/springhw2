@@ -26,18 +26,30 @@ public class PurchaseService {
         Optional<Purchase> optional = purchaseRepository.findById(id);
         return optional.orElse(new Purchase());
     }
-    public List<Purchase> updateById(int id, int quantity) {
+    public List<Purchase> updateById(int id, int quantity, double sum) {
         List<Purchase> list = purchaseRepository.findAll();
-        Purchase b = list.get(id);
-        b.setQuantity(quantity);
-        list.set(id,b);
+        for (Purchase p: list) {
+            if (id == p.getOrder_id()) {
+                p.setQuantity(quantity);
+                p.setSum(sum);
+            }
+        }
 
         return list;
     }
     public List<Purchase> fullUpdateById(int id, Purchase purchase) {
         List<Purchase> list = purchaseRepository.findAll();
-        list.remove(id);
-        list.add(id, purchase);
+        for (Purchase p: list) {
+            if (id == p.getOrder_id()) {
+                p.setOrder_id(id);
+                p.setQuantity(purchase.getQuantity());
+                p.setShop(purchase.getShop());
+                p.setBuyer(purchase.getBuyer());
+                p.setBook(purchase.getBook());
+                p.setSellDate(purchase.getSellDate());
+                p.setSum(purchase.getSum());
+            }
+        }
 
         return list;
     }

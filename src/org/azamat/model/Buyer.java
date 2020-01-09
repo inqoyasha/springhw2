@@ -4,10 +4,13 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "buyer")
+@SecondaryTable(name="purchase",
+        pkJoinColumns = @PrimaryKeyJoinColumn(name = "buyer", referencedColumnName="buyer_id"))
 public class Buyer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int buyer_id;
+    @Column(name = "lastname")
     private String lastName;
     private String address;
     private int sale;

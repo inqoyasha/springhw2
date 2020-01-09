@@ -28,17 +28,25 @@ public class ShopService {
     }
     public List<Shop> updateById(int id, String name, int commission) {
         List<Shop> list = shopRepository.findAll();
-        Shop b = list.get(id);
-        b.setShopName(name);
-        b.setCommission(commission);
-        list.set(id,b);
+        for (Shop s: list) {
+            if (id == s.getShop_id()) {
+                s.setShopName(name);
+                s.setCommission(commission);
+            }
+        }
 
         return list;
     }
     public List<Shop> fullUpdateById(int id, Shop shop) {
         List<Shop> list = shopRepository.findAll();
-        list.remove(id);
-        list.add(id, shop);
+        for (Shop s: list) {
+            if (id == s.getShop_id()) {
+                    s.setShop_id(id);
+                    s.setShopName(shop.getShopName());
+                    s.setAddress(shop.getAddress());
+                    s.setCommission(shop.getCommission());
+                }
+            }
 
         return list;
     }

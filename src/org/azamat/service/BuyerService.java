@@ -28,16 +28,24 @@ public class BuyerService {
     }
     public List<Buyer> updateById(int id, int sale) {
         List<Buyer> list = buyerRepository.findAll();
-        Buyer b = list.get(id);
-        b.setSale(sale);
-        list.set(id,b);
+        for (Buyer buyer: list) {
+            if (id == buyer.getBuyer_id()) {
+                buyer.setSale(sale);
+            }
+        }
 
         return list;
     }
     public List<Buyer> fullUpdateById(int id, Buyer buyer) {
         List<Buyer> list = buyerRepository.findAll();
-        list.remove(id);
-        list.add(id, buyer);
+        for (Buyer b: list) {
+            if (id == b.getBuyer_id()) {
+                b.setBuyer_id(id);
+                b.setLastName(buyer.getLastName());
+                b.setAddress(buyer.getAddress());
+                b.setSale(buyer.getSale());
+            }
+        }
 
         return list;
     }

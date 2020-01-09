@@ -4,6 +4,8 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "book")
+@SecondaryTable(name="purchase",
+        pkJoinColumns = @PrimaryKeyJoinColumn(name = "book", referencedColumnName="book_id"))
 public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

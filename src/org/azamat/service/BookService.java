@@ -43,6 +43,7 @@ public class BookService {
         for (Book b: list) {
             if (id == b.getBook_id()) {
                 b.setBook_id(id);
+                b.setBookName(book.getBookName());
                 b.setCost(book.getCost());
                 b.setQuantity(book.getQuantity());
                 b.setStorage(book.getStorage());
