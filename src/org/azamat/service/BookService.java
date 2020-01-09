@@ -27,21 +27,27 @@ public class BookService {
         return optional.orElse(new Book());
     }
     public List<Book> updateById(int id, double cost, int quantity, String storage) {
-//        int listId = id-1;
         List<Book> list = bookRepository.findAll();
-        Book b = list.get(id);
-        b.setCost(cost);
-        b.setQuantity(quantity);
-        b.setStorage(storage);
-        list.set(id,b);
+        for (Book book: list) {
+            if (id == book.getBook_id()) {
+                book.setCost(cost);
+                book.setQuantity(quantity);
+                book.setStorage(storage);
+            }
+        }
 
         return list;
     }
     public List<Book> fullUpdateById(int id, Book book) {
-//        int listId = id-1;
         List<Book> list = bookRepository.findAll();
-        list.remove(id);
-        list.add(id, book);
+        for (Book b: list) {
+            if (id == b.getBook_id()) {
+                b.setBook_id(id);
+                b.setCost(book.getCost());
+                b.setQuantity(book.getQuantity());
+                b.setStorage(book.getStorage());
+            }
+        }
 
         return list;
     }
