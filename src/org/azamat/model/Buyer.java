@@ -13,7 +13,7 @@ public class Buyer {
     @Column(name = "lastname")
     private String lastName;
     private String address;
-    private int sale;
+    private int discount;
 
     public Buyer() {
     }
@@ -42,12 +42,12 @@ public class Buyer {
         this.address = address;
     }
 
-    public int getSale() {
-        return sale;
+    public int getDiscount() {
+        return discount;
     }
 
-    public void setSale(int sale) {
-        this.sale = sale;
+    public void setDiscount(int discount) {
+        this.discount = discount;
     }
 
     @Override
@@ -56,7 +56,7 @@ public class Buyer {
                 "buyer_id=" + buyer_id +
                 ", lastName='" + lastName + '\'' +
                 ", address='" + address + '\'' +
-                ", sale=" + sale +
+                ", sale=" + discount +
                 '}';
     }
 }

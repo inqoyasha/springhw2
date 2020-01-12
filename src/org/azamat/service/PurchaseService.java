@@ -1,6 +1,8 @@
 package org.azamat.service;
 
 import org.azamat.model.Purchase;
+import org.azamat.projections.purchase.PurchaseBuyerNameShopName;
+import org.azamat.projections.purchase.PurchaseMonth;
 import org.azamat.repository.PurchaseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -52,5 +54,13 @@ public class PurchaseService {
         }
 
         return list;
+    }
+
+    public List<PurchaseMonth> findAllPurchaseByMonth() {
+        return purchaseRepository.findAllPurchaseByMonth();
+    }
+
+    public List<PurchaseBuyerNameShopName> findLastNameAndShopName() {
+        return purchaseRepository.findLastNameAndShopName();
     }
 }

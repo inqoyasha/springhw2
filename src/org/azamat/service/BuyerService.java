@@ -1,6 +1,8 @@
 package org.azamat.service;
 
 import org.azamat.model.Buyer;
+import org.azamat.projections.buyer.BuyerAddress;
+import org.azamat.projections.buyer.BuyerNameDiscountAddress;
 import org.azamat.repository.BuyerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -30,7 +32,7 @@ public class BuyerService {
         List<Buyer> list = buyerRepository.findAll();
         for (Buyer buyer: list) {
             if (id == buyer.getBuyer_id()) {
-                buyer.setSale(sale);
+                buyer.setDiscount(sale);
             }
         }
 
@@ -43,10 +45,21 @@ public class BuyerService {
                 b.setBuyer_id(id);
                 b.setLastName(buyer.getLastName());
                 b.setAddress(buyer.getAddress());
-                b.setSale(buyer.getSale());
+                b.setDiscount(buyer.getDiscount());
             }
         }
 
         return list;
+    }
+
+    public List<BuyerAddress> findAllBuyerAddress() {
+        return buyerRepository.findAllBuyerAddress();
+    }
+    public List<BuyerNameDiscountAddress> findLastNameAmdDiscountByAddress(){
+        return buyerRepository.findLastNameAmdDiscountByAddress();
+    }
+
+    public List<BuyerNameDiscountAddress> findLastNameAndDiscountByAddressLike (String address) {
+        return buyerRepository.findLastNameAndDiscountByAddressLike(address);
     }
 }

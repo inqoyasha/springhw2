@@ -1,6 +1,7 @@
 package org.azamat.service;
 
 import org.azamat.model.Shop;
+import org.azamat.projections.shop.ShopNameAddress;
 import org.azamat.repository.ShopRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -49,5 +50,8 @@ public class ShopService {
             }
 
         return list;
+    }
+    public List<ShopNameAddress> findShopNameByAddressStartsWith(String address) {
+        return shopRepository.findShopNameByAddressStartsWith(address);
     }
 }

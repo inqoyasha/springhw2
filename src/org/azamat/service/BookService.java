@@ -1,6 +1,7 @@
 package org.azamat.service;
 
 import org.azamat.model.Book;
+import org.azamat.projections.book.BookNameAndCost;
 import org.azamat.repository.BookRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -52,7 +53,10 @@ public class BookService {
 
         return list;
     }
-    public List<Book> findByNameAndCost(String name, double cost) {
-        return bookRepository.findByNameAndCost(name,cost);
+    public List<BookNameAndCost> findAllBooks() {
+        return bookRepository.findAllBooks();
+    }
+    public List<BookNameAndCost> findBookNameAndCostByBookNameLikeOrCostGreaterThan(String bookname, Double cost){
+        return bookRepository.findBookNameAndCostByBookNameLikeOrCostGreaterThan(bookname, cost);
     }
 }

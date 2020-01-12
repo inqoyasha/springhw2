@@ -6,9 +6,10 @@ import javax.persistence.*;
 @Table(name = "book")
 @SecondaryTable(name="purchase",
         pkJoinColumns = @PrimaryKeyJoinColumn(name = "book", referencedColumnName="book_id"))
-public class Book {
+public class Book{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "book_id")
     private int book_id;
     @Column(name = "bookname")
     private String bookName;
@@ -24,6 +25,11 @@ public class Book {
         this.cost = cost;
         this.storage = storage;
         this.quantity = quantity;
+    }
+
+    public Book(String bookName, double cost) {
+        this.bookName = bookName;
+        this.cost = cost;
     }
 
     public int getBook_id() {
