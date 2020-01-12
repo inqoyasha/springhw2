@@ -1,8 +1,11 @@
 package org.azamat.service;
 
 import org.azamat.model.Purchase;
-import org.azamat.projections.purchase.PurchaseBuyerNameShopName;
-import org.azamat.projections.purchase.PurchaseMonth;
+import org.azamat.projections.multiplytables.PurchaseIdLastNameDate;
+import org.azamat.projections.multiplytables.PurchaseLastNameAddressDateByAddress;
+import org.azamat.projections.multiplytables.PurchaseShopNameLastNameDiscountByAddressAndDiscount;
+import org.azamat.projections.multiplytables.PurchaseStorageNameAddressQuantityCostByQuantityStorage;
+import org.azamat.projections.purchase.*;
 import org.azamat.repository.PurchaseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -62,5 +65,20 @@ public class PurchaseService {
 
     public List<PurchaseBuyerNameShopName> findLastNameAndShopName() {
         return purchaseRepository.findLastNameAndShopName();
+    }
+    public List<PurchaseDateLastNameDiscountBookNameQuantity> findDateLastNameDiscountBookNameQuantity() {
+        return purchaseRepository.findDateLastNameDiscountBookNameQuantity();
+    }
+    public List<PurchaseIdLastNameDate> findIdLastNameDateBySum() {
+        return purchaseRepository.findIdLastNameDateBySum();
+    }
+    public List<PurchaseLastNameAddressDateByAddress> findLastNameAddressDateByAddress() {
+        return purchaseRepository.findLastNameAddressDateByAddress();
+    }
+    public List<PurchaseShopNameLastNameDiscountByAddressAndDiscount> findShopNameByAddressAndDiscount() {
+        return purchaseRepository.findShopNameByAddressAndDiscount();
+    }
+    public List<PurchaseStorageNameAddressQuantityCostByQuantityStorage> findStorageNameByQuantity() {
+        return purchaseRepository.findStorageNameByQuantity();
     }
 }

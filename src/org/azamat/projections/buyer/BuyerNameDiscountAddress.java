@@ -2,6 +2,6 @@ package org.azamat.projections.buyer;
 
 public interface BuyerNameDiscountAddress {
     String getLastName();
-    String getAddress();
+    String getBuyerAddress();
     int getDiscount();
 }

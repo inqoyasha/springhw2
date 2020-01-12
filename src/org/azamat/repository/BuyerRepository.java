@@ -15,5 +15,5 @@ public interface BuyerRepository extends JpaRepository<Buyer, Integer> {
     @Query(value = "SELECT b.lastname as lastname, b.discount as discount FROM buyer as b WHERE address LIKE('dzerzhinsk')", nativeQuery = true)
     List<BuyerNameDiscountAddress> findLastNameAmdDiscountByAddress();
 
-    List<BuyerNameDiscountAddress> findLastNameAndDiscountByAddressLike(String address);
+    List<BuyerNameDiscountAddress> findLastNameAndDiscountByBuyerAddressLike(String address);
 }

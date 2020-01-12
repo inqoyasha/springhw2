@@ -70,7 +70,7 @@ public class BookController {
             return ResponseEntity.ok(bookService.findById(id));
         }
 
-    }
+}
 
     @GetMapping("/find/all")
     public List<Book> findAll() {

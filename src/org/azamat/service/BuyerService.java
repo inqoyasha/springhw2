@@ -44,7 +44,7 @@ public class BuyerService {
             if (id == b.getBuyer_id()) {
                 b.setBuyer_id(id);
                 b.setLastName(buyer.getLastName());
-                b.setAddress(buyer.getAddress());
+                b.setBuyerAddress(buyer.getBuyerAddress());
                 b.setDiscount(buyer.getDiscount());
             }
         }
@@ -60,6 +60,6 @@ public class BuyerService {
     }
 
     public List<BuyerNameDiscountAddress> findLastNameAndDiscountByAddressLike (String address) {
-        return buyerRepository.findLastNameAndDiscountByAddressLike(address);
+        return buyerRepository.findLastNameAndDiscountByBuyerAddressLike(address);
     }
 }

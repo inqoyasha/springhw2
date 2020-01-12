@@ -93,8 +93,17 @@ public class SpringBootStarter implements CommandLineRunner {
 //----------------------------------------------------4-----------------------------------------------------------------
 //        log.info("shopname and lastname on purchase");
 //        purchaseService.findLastNameAndShopName().forEach(System.out::println);
-
-
+//        log.info("date,lastname,discount on buyer");
+//        purchaseService.findDateLastNameDiscountBookNameQuantity().forEach(System.out::println);
+//----------------------------------------------------5-----------------------------------------------------------------
+//        log.info("date,lastname,order_id by sum > 1201");
+//        purchaseService.findIdLastNameDateBySum().forEach(System.out::println);
+//        log.info("date,lastname,address by shop address");
+//        purchaseService.findLastNameAddressDateByAddress().forEach(System.out::println);
+//        log.info("shopname,lastname,discount by shop discount between 10 and 15");
+//        purchaseService.findShopNameByAddressAndDiscount().forEach(System.out::println);
+        log.info("storagename,address,quantity, cost by quantityStorage");
+        purchaseService.findStorageNameByQuantity().forEach(System.out::println);
     }
 }
 

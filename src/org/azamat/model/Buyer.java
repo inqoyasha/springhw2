@@ -12,7 +12,7 @@ public class Buyer {
     private int buyer_id;
     @Column(name = "lastname")
     private String lastName;
-    private String address;
+    private String buyerAddress;
     private int discount;
 
     public Buyer() {
@@ -34,12 +34,12 @@ public class Buyer {
         this.lastName = lastName;
     }
 
-    public String getAddress() {
-        return address;
+    public String getBuyerAddress() {
+        return buyerAddress;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setBuyerAddress(String buyerAddress) {
+        this.buyerAddress = buyerAddress;
     }
 
     public int getDiscount() {
@@ -55,7 +55,7 @@ public class Buyer {
         return "Buyer{" +
                 "buyer_id=" + buyer_id +
                 ", lastName='" + lastName + '\'' +
-                ", address='" + address + '\'' +
+                ", address='" + buyerAddress + '\'' +
                 ", sale=" + discount +
                 '}';
     }
